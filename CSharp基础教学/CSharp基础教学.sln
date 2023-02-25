@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson1_枚举", "Lesson1_枚举\Lesson1_枚举.csproj", "{040D881F-17EC-4DD4-A771-C2F789845D3F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson1_枚举", "Lesson1_枚举\Lesson1_枚举.csproj", "{040D881F-17EC-4DD4-A771-C2F789845D3F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson2_一维数组", "Lesson2_一维数组\Lesson2_一维数组.csproj", "{A9BADE56-1575-4EB9-960C-1666516B05D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson2_一维数组", "Lesson2_一维数组\Lesson2_一维数组.csproj", "{A9BADE56-1575-4EB9-960C-1666516B05D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson3_二维数组", "Lesson3_二维数组\Lesson3_二维数组.csproj", "{E98C2480-E35B-42E8-A34C-CFD524257241}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{A9BADE56-1575-4EB9-960C-1666516B05D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9BADE56-1575-4EB9-960C-1666516B05D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9BADE56-1575-4EB9-960C-1666516B05D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E98C2480-E35B-42E8-A34C-CFD524257241}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E98C2480-E35B-42E8-A34C-CFD524257241}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E98C2480-E35B-42E8-A34C-CFD524257241}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E98C2480-E35B-42E8-A34C-CFD524257241}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
