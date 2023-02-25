@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Reflection;
 
 namespace Lesson2_一维数组
@@ -68,9 +69,9 @@ namespace Lesson2_一维数组
             //}
             //Console.WriteLine("\n-------------------------");
 
-            ////求数组中的最大值
+            //求数组中的最大值
             //int maxNum = array4[0];
-            //for (int i = 0; i < array4.Length - 1; i++)
+            //for (int i = 0; i < array4.Length; i++)
             //{
             //    if (array4[i] > maxNum)
             //    {
@@ -94,7 +95,7 @@ namespace Lesson2_一维数组
             ////求数组中的最小值
 
             //int minNum = array4[0];
-            //for (int i = 0; i < array4.Length - 1; i++)
+            //for (int i = 0; i < array4.Length; i++)
             //{
             //    if (array4[i] < minNum)
             //    {
