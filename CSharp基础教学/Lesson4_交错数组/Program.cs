@@ -14,6 +14,16 @@
 
             //数组的长度-列
             Console.WriteLine(array[0].Length);
+
+            //遍历交错数组
+
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array[i].Length; j++)
+                {
+
+                }
+            }
         }
     }
 }
