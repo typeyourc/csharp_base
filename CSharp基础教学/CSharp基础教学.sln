@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson5_值类型和引用�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson6_特殊引用类型string", "Lesson6_特殊引用类型string\Lesson6_特殊引用类型string.csproj", "{55937080-BE47-4C56-AB13-22C124C71003}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson7_函数", "Lesson7_函数\Lesson7_函数.csproj", "{8BF91894-A65F-49E3-922B-DF1D49011BBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson7_函数练习题", "Lesson7_函数练习题\Lesson7_函数练习题.csproj", "{1CE9A6A7-AE7F-45CA-8BD3-AB6DE1B7461B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{55937080-BE47-4C56-AB13-22C124C71003}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55937080-BE47-4C56-AB13-22C124C71003}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55937080-BE47-4C56-AB13-22C124C71003}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BF91894-A65F-49E3-922B-DF1D49011BBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BF91894-A65F-49E3-922B-DF1D49011BBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BF91894-A65F-49E3-922B-DF1D49011BBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BF91894-A65F-49E3-922B-DF1D49011BBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CE9A6A7-AE7F-45CA-8BD3-AB6DE1B7461B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CE9A6A7-AE7F-45CA-8BD3-AB6DE1B7461B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CE9A6A7-AE7F-45CA-8BD3-AB6DE1B7461B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CE9A6A7-AE7F-45CA-8BD3-AB6DE1B7461B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
