@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson2_一维数组", "Les
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson3_二维数组", "Lesson3_二维数组\Lesson3_二维数组.csproj", "{E98C2480-E35B-42E8-A34C-CFD524257241}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson4_交错数组", "Lesson4_交错数组\Lesson4_交错数组.csproj", "{2A8A410D-B7D0-4F91-880F-804BE1AB2C6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson4_交错数组", "Lesson4_交错数组\Lesson4_交错数组.csproj", "{2A8A410D-B7D0-4F91-880F-804BE1AB2C6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson5_值类型和引用类型", "Lesson5_值类型和引用类型\Lesson5_值类型和引用类型.csproj", "{8D1A5D51-8EE9-46F1-8541-76471D033A51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson6_特殊引用类型string", "Lesson6_特殊引用类型string\Lesson6_特殊引用类型string.csproj", "{55937080-BE47-4C56-AB13-22C124C71003}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{2A8A410D-B7D0-4F91-880F-804BE1AB2C6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A8A410D-B7D0-4F91-880F-804BE1AB2C6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A8A410D-B7D0-4F91-880F-804BE1AB2C6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D1A5D51-8EE9-46F1-8541-76471D033A51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D1A5D51-8EE9-46F1-8541-76471D033A51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D1A5D51-8EE9-46F1-8541-76471D033A51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D1A5D51-8EE9-46F1-8541-76471D033A51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55937080-BE47-4C56-AB13-22C124C71003}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55937080-BE47-4C56-AB13-22C124C71003}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55937080-BE47-4C56-AB13-22C124C71003}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55937080-BE47-4C56-AB13-22C124C71003}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
