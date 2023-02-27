@@ -11,13 +11,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson3_二维数组", "Les
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson4_交错数组", "Lesson4_交错数组\Lesson4_交错数组.csproj", "{2A8A410D-B7D0-4F91-880F-804BE1AB2C6D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson5_值类型和引用类型", "Lesson5_值类型和引用类型\Lesson5_值类型和引用类型.csproj", "{8D1A5D51-8EE9-46F1-8541-76471D033A51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson5_值类型和引用类型", "Lesson5_值类型和引用类型\Lesson5_值类型和引用类型.csproj", "{8D1A5D51-8EE9-46F1-8541-76471D033A51}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson6_特殊引用类型string", "Lesson6_特殊引用类型string\Lesson6_特殊引用类型string.csproj", "{55937080-BE47-4C56-AB13-22C124C71003}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson6_特殊引用类型string", "Lesson6_特殊引用类型string\Lesson6_特殊引用类型string.csproj", "{55937080-BE47-4C56-AB13-22C124C71003}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson7_函数", "Lesson7_函数\Lesson7_函数.csproj", "{8BF91894-A65F-49E3-922B-DF1D49011BBE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson7_函数", "Lesson7_函数\Lesson7_函数.csproj", "{8BF91894-A65F-49E3-922B-DF1D49011BBE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson7_函数练习题", "Lesson7_函数练习题\Lesson7_函数练习题.csproj", "{1CE9A6A7-AE7F-45CA-8BD3-AB6DE1B7461B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson7_函数练习题", "Lesson7_函数练习题\Lesson7_函数练习题.csproj", "{1CE9A6A7-AE7F-45CA-8BD3-AB6DE1B7461B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson8_ref和out", "Lesson8_ref和out\Lesson8_ref和out.csproj", "{A11E1534-DAAD-4A70-9114-FD81AA94D4BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{1CE9A6A7-AE7F-45CA-8BD3-AB6DE1B7461B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1CE9A6A7-AE7F-45CA-8BD3-AB6DE1B7461B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1CE9A6A7-AE7F-45CA-8BD3-AB6DE1B7461B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A11E1534-DAAD-4A70-9114-FD81AA94D4BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A11E1534-DAAD-4A70-9114-FD81AA94D4BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A11E1534-DAAD-4A70-9114-FD81AA94D4BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A11E1534-DAAD-4A70-9114-FD81AA94D4BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
