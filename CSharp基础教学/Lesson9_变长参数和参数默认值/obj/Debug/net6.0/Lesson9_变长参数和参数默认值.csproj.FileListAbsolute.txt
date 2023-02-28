@@ -1,0 +1,15 @@
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\Lesson9_变长参数和参数默认值\bin\Debug\net6.0\Lesson9_变长参数和参数默认值.exe
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\Lesson9_变长参数和参数默认值\bin\Debug\net6.0\Lesson9_变长参数和参数默认值.deps.json
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\Lesson9_变长参数和参数默认值\bin\Debug\net6.0\Lesson9_变长参数和参数默认值.runtimeconfig.json
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\Lesson9_变长参数和参数默认值\bin\Debug\net6.0\Lesson9_变长参数和参数默认值.dll
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\Lesson9_变长参数和参数默认值\bin\Debug\net6.0\Lesson9_变长参数和参数默认值.pdb
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\Lesson9_变长参数和参数默认值\obj\Debug\net6.0\Lesson9_变长参数和参数默认值.csproj.AssemblyReference.cache
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\Lesson9_变长参数和参数默认值\obj\Debug\net6.0\Lesson9_变长参数和参数默认值.GeneratedMSBuildEditorConfig.editorconfig
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\Lesson9_变长参数和参数默认值\obj\Debug\net6.0\Lesson9_变长参数和参数默认值.AssemblyInfoInputs.cache
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\Lesson9_变长参数和参数默认值\obj\Debug\net6.0\Lesson9_变长参数和参数默认值.AssemblyInfo.cs
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\Lesson9_变长参数和参数默认值\obj\Debug\net6.0\Lesson9_变长参数和参数默认值.csproj.CoreCompileInputs.cache
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\Lesson9_变长参数和参数默认值\obj\Debug\net6.0\Lesson9_变长参数和参数默认值.dll
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\Lesson9_变长参数和参数默认值\obj\Debug\net6.0\refint\Lesson9_变长参数和参数默认值.dll
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\Lesson9_变长参数和参数默认值\obj\Debug\net6.0\Lesson9_变长参数和参数默认值.pdb
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\Lesson9_变长参数和参数默认值\obj\Debug\net6.0\Lesson9_变长参数和参数默认值.genruntimeconfig.cache
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\Lesson9_变长参数和参数默认值\obj\Debug\net6.0\ref\Lesson9_变长参数和参数默认值.dll
