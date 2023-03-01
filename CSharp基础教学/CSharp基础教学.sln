@@ -29,9 +29,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson11_递归函数", "Le
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "测试专用", "测试专用\测试专用.csproj", "{1EE490D7-1C55-4419-AD1C-EDA4D76E98A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson12_结构体", "Lesson12_结构体\Lesson12_结构体.csproj", "{3F8614BD-AC23-4185-ABC1-5C94D3324484}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson12_结构体", "Lesson12_结构体\Lesson12_结构体.csproj", "{3F8614BD-AC23-4185-ABC1-5C94D3324484}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson12_结构体练习", "Lesson12_结构体练习\Lesson12_结构体练习.csproj", "{F730EFFA-95DF-4BD5-B4BE-FEAE0654D524}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson12_结构体练习", "Lesson12_结构体练习\Lesson12_结构体练习.csproj", "{F730EFFA-95DF-4BD5-B4BE-FEAE0654D524}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson13_冒泡排序", "Lesson13_冒泡排序\Lesson13_冒泡排序.csproj", "{ACB91B5B-D6A1-4345-9FB1-7A01250DA7BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +101,10 @@ Global
 		{F730EFFA-95DF-4BD5-B4BE-FEAE0654D524}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F730EFFA-95DF-4BD5-B4BE-FEAE0654D524}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F730EFFA-95DF-4BD5-B4BE-FEAE0654D524}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACB91B5B-D6A1-4345-9FB1-7A01250DA7BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACB91B5B-D6A1-4345-9FB1-7A01250DA7BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACB91B5B-D6A1-4345-9FB1-7A01250DA7BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACB91B5B-D6A1-4345-9FB1-7A01250DA7BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
