@@ -1,0 +1,15 @@
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\Lesson12_结构体练习\bin\Debug\net6.0\Lesson12_结构体练习.exe
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\Lesson12_结构体练习\bin\Debug\net6.0\Lesson12_结构体练习.deps.json
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\Lesson12_结构体练习\bin\Debug\net6.0\Lesson12_结构体练习.runtimeconfig.json
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\Lesson12_结构体练习\bin\Debug\net6.0\Lesson12_结构体练习.dll
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\Lesson12_结构体练习\bin\Debug\net6.0\Lesson12_结构体练习.pdb
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\Lesson12_结构体练习\obj\Debug\net6.0\Lesson12_结构体练习.csproj.AssemblyReference.cache
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\Lesson12_结构体练习\obj\Debug\net6.0\Lesson12_结构体练习.GeneratedMSBuildEditorConfig.editorconfig
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\Lesson12_结构体练习\obj\Debug\net6.0\Lesson12_结构体练习.AssemblyInfoInputs.cache
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\Lesson12_结构体练习\obj\Debug\net6.0\Lesson12_结构体练习.AssemblyInfo.cs
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\Lesson12_结构体练习\obj\Debug\net6.0\Lesson12_结构体练习.csproj.CoreCompileInputs.cache
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\Lesson12_结构体练习\obj\Debug\net6.0\Lesson12_结构体练习.dll
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\Lesson12_结构体练习\obj\Debug\net6.0\refint\Lesson12_结构体练习.dll
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\Lesson12_结构体练习\obj\Debug\net6.0\Lesson12_结构体练习.pdb
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\Lesson12_结构体练习\obj\Debug\net6.0\Lesson12_结构体练习.genruntimeconfig.cache
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\Lesson12_结构体练习\obj\Debug\net6.0\ref\Lesson12_结构体练习.dll

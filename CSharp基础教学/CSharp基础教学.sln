@@ -19,15 +19,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson7_函数", "Lesson7_�
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson7_函数练习题", "Lesson7_函数练习题\Lesson7_函数练习题.csproj", "{1CE9A6A7-AE7F-45CA-8BD3-AB6DE1B7461B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson8_ref和out", "Lesson8_ref和out\Lesson8_ref和out.csproj", "{A11E1534-DAAD-4A70-9114-FD81AA94D4BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson8_ref和out", "Lesson8_ref和out\Lesson8_ref和out.csproj", "{A11E1534-DAAD-4A70-9114-FD81AA94D4BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson9_变长参数和参数默认值", "Lesson9_变长参数和参数默认值\Lesson9_变长参数和参数默认值.csproj", "{A2FAD3AA-BBC2-43E5-96D0-8F13BDE68C20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson9_变长参数和参数默认值", "Lesson9_变长参数和参数默认值\Lesson9_变长参数和参数默认值.csproj", "{A2FAD3AA-BBC2-43E5-96D0-8F13BDE68C20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson10_函数重载", "Lesson10_函数重载\Lesson10_函数重载.csproj", "{CA48FBEB-6C02-4434-92B1-346CED969E8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson10_函数重载", "Lesson10_函数重载\Lesson10_函数重载.csproj", "{CA48FBEB-6C02-4434-92B1-346CED969E8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson11_递归函数", "Lesson11_递归函数\Lesson11_递归函数.csproj", "{CE030EB8-9C32-446C-BA5B-C2E9ADA16BDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson11_递归函数", "Lesson11_递归函数\Lesson11_递归函数.csproj", "{CE030EB8-9C32-446C-BA5B-C2E9ADA16BDA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "测试专用", "测试专用\测试专用.csproj", "{1EE490D7-1C55-4419-AD1C-EDA4D76E98A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "测试专用", "测试专用\测试专用.csproj", "{1EE490D7-1C55-4419-AD1C-EDA4D76E98A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson12_结构体", "Lesson12_结构体\Lesson12_结构体.csproj", "{3F8614BD-AC23-4185-ABC1-5C94D3324484}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson12_结构体练习", "Lesson12_结构体练习\Lesson12_结构体练习.csproj", "{F730EFFA-95DF-4BD5-B4BE-FEAE0654D524}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +91,14 @@ Global
 		{1EE490D7-1C55-4419-AD1C-EDA4D76E98A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1EE490D7-1C55-4419-AD1C-EDA4D76E98A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1EE490D7-1C55-4419-AD1C-EDA4D76E98A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F8614BD-AC23-4185-ABC1-5C94D3324484}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F8614BD-AC23-4185-ABC1-5C94D3324484}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F8614BD-AC23-4185-ABC1-5C94D3324484}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F8614BD-AC23-4185-ABC1-5C94D3324484}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F730EFFA-95DF-4BD5-B4BE-FEAE0654D524}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F730EFFA-95DF-4BD5-B4BE-FEAE0654D524}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F730EFFA-95DF-4BD5-B4BE-FEAE0654D524}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F730EFFA-95DF-4BD5-B4BE-FEAE0654D524}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
