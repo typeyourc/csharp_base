@@ -35,6 +35,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson12_结构体练习", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson13_冒泡排序", "Lesson13_冒泡排序\Lesson13_冒泡排序.csproj", "{ACB91B5B-D6A1-4345-9FB1-7A01250DA7BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson14_选择排序", "Lesson14_选择排序\Lesson14_选择排序.csproj", "{804AE39E-0387-448B-A9AF-6264D0437A3E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +107,10 @@ Global
 		{ACB91B5B-D6A1-4345-9FB1-7A01250DA7BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACB91B5B-D6A1-4345-9FB1-7A01250DA7BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACB91B5B-D6A1-4345-9FB1-7A01250DA7BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{804AE39E-0387-448B-A9AF-6264D0437A3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{804AE39E-0387-448B-A9AF-6264D0437A3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{804AE39E-0387-448B-A9AF-6264D0437A3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{804AE39E-0387-448B-A9AF-6264D0437A3E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
