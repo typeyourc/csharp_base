@@ -9,14 +9,14 @@
             //练习
             //1.定义数组并赋值
 
-            //int[] arr = new int[20];
-            //Random random = new Random();
-            //for (int i = 0; i < arr.Length; i++)
-            //{
-            //    arr[i] = random.Next(0,101);
-            //}
+            int[] arr = new int[20];
+            Random random = new Random();
+            for (int i = 0; i < arr.Length; i++)
+            {
+                arr[i] = random.Next(0, 101);
+            }
 
-            int[] arr = new int[20] { 19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1,0};
+            //int[] arr = new int[20] { 19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1,0};
 
             //打印原始数组
             for (int i = 0; i < arr.Length; i++)
@@ -27,7 +27,7 @@
             Console.WriteLine("\n-------------------------------------------------");
 
             //一共比较m轮
-            for (int m = 0; m < arr.Length - 15; m++)
+            for (int m = 0; m < arr.Length - 1; m++)
             {
                 //2.快排-升序排序并打印
 
