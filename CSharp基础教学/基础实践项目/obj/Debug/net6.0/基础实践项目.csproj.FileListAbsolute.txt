@@ -1,0 +1,15 @@
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\基础实践项目\bin\Debug\net6.0\基础实践项目.exe
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\基础实践项目\bin\Debug\net6.0\基础实践项目.deps.json
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\基础实践项目\bin\Debug\net6.0\基础实践项目.runtimeconfig.json
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\基础实践项目\bin\Debug\net6.0\基础实践项目.dll
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\基础实践项目\bin\Debug\net6.0\基础实践项目.pdb
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\基础实践项目\obj\Debug\net6.0\基础实践项目.csproj.AssemblyReference.cache
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\基础实践项目\obj\Debug\net6.0\基础实践项目.GeneratedMSBuildEditorConfig.editorconfig
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\基础实践项目\obj\Debug\net6.0\基础实践项目.AssemblyInfoInputs.cache
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\基础实践项目\obj\Debug\net6.0\基础实践项目.AssemblyInfo.cs
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\基础实践项目\obj\Debug\net6.0\基础实践项目.csproj.CoreCompileInputs.cache
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\基础实践项目\obj\Debug\net6.0\基础实践项目.dll
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\基础实践项目\obj\Debug\net6.0\refint\基础实践项目.dll
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\基础实践项目\obj\Debug\net6.0\基础实践项目.pdb
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\基础实践项目\obj\Debug\net6.0\基础实践项目.genruntimeconfig.cache
+E:\Csharp\source\repos\Csharp基础练习\CSharp基础教学\基础实践项目\obj\Debug\net6.0\ref\基础实践项目.dll
