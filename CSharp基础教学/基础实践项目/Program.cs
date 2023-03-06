@@ -99,7 +99,7 @@ namespace 基础实践项目
 
         #endregion
 
-        #region 2.3确认玩家最终索引函数
+        #region 2.3确认玩家最终索引函数申明
 
         static void changeIndex(ref Gamer nowPlayer,ref Gamer waitPlayer, int[,] arr)
         {
@@ -107,15 +107,18 @@ namespace 基础实践项目
             if (arr[nowPlayer.index, 2] == 0)//普通格子
             {
                 nowPlayer.index = nowPlayer.index;
+                return;
             }
             else if (arr[nowPlayer.index, 2] == 1)//暂停格子
             {
                 nowPlayer.index = nowPlayer.index;
                 nowPlayer.canPlay = false;
+                return;
             }
             else if (arr[nowPlayer.index, 2] == 2)//炸弹格子
             {
                 nowPlayer.index = nowPlayer.index - 5;
+                return;
             }
             else if(arr[nowPlayer.index, 2] == 3)//时空隧道
             {
@@ -132,6 +135,7 @@ namespace 基础实践项目
                 {
                     nowPlayer.index = nowPlayer.index;
                     nowPlayer.canPlay = false;
+                    return;
                 }
                 else if (r1 == 3)//换位置
                 {
@@ -139,12 +143,13 @@ namespace 基础实践项目
                     temp = nowPlayer.index;
                     nowPlayer.index = waitPlayer.index;
                     waitPlayer.index = temp;
+                    return;
                 }
             }
         }
         #endregion
 
-        #region 2.3地图上打印玩家logo函数
+        #region 2.3地图上打印玩家logo函数申明
 
         static void printPlayer(int type, Gamer nowPlayer,int[,] arr)
         {
@@ -340,15 +345,17 @@ namespace 基础实践项目
             #endregion
 
             #region 2.2游戏地图
-
-            //地图坐标,初始坐标(16,3)
-            int xMap = 16;
+            #region 2.2.0地图初始设置
+            //地图坐标,初始坐标(14,3)
+            int xMap = 14;
             int yMap = 3;
-            //地图元素个数，一共79个
-            int numMap = 79;
-            int[,] array = new int[79, 3];
+            //地图元素个数，一共80个
+            int numMap = 80;
+            int[,] array = new int[80, 3];
+            #endregion
 
             #region 2.2.1地图元素坐标存到数组中
+            #region 2.2.1.1改进前坐标存数组方法
             ////第一行+第二行地图元素存到数组中
             //for (int i = 0; i < 11; i++)
             //{
@@ -399,11 +406,12 @@ namespace 基础实践项目
             //        yMap += 1;
             //    }
             //}
-
+            #endregion
+            #region 2.2.1.2改进后坐标存数组方法
             //存储方法改进(写入一个循环中)
-            for (int i = 0; i < 79; i++)
+            for (int i = 0; i < 80; i++)
             {
-                if (i < 11 || i >= 22 && i < 33 || i >= 44 && i < 55 || i >= 66 && i < 77)
+                if (i < 12 || i >= 23 && i < 34 || i >= 45 && i < 56 || i >= 67 && i < 78)
                 {
                     array[i, 0] = xMap;
                     array[i, 1] = yMap;
@@ -418,7 +426,7 @@ namespace 基础实践项目
                         yMap += 1;
                     }
                 }
-                if (i >= 11 && i < 22 || i >= 33 && i < 44 || i >= 55 && i < 66 || i == 77 || i == 78) 
+                if (i >= 12 && i < 23 || i >= 34 && i < 45 || i >= 56 && i < 67 || i == 78 || i == 79)
                 {
                     array[i, 0] = xMap;
                     array[i, 1] = yMap;
@@ -433,14 +441,14 @@ namespace 基础实践项目
                         yMap += 1;
                     }
                 }
-                
+
             }
             //测试一下存储是否正确-测试通过
             //for (int i = 0; i < 79; i++)
             //{
             //    Console.WriteLine(i + " "+ array[i, 0] + " " + array[i, 1] + " " + array[i, 2]);
             //}
-
+            #endregion
 
             #endregion
 
@@ -448,6 +456,7 @@ namespace 基础实践项目
             //属性分3种，普通0、暂停1、炸弹2、时空隧道3
             //普通在2.1.1中已经存储，无需再存
             #region 2.2.2.1改进前存储方法
+            //注意，因为原先地图元素个数是79个，后面个数改为80个，所以下面的数都需要加1，这个方法中以下未修改
             //暂停，地图中一共5个，坐标分别为数组第9/49/50/62/68个元素
             //int countPause = 1;
             //for (int i = 0; i < array.GetLength(0); i++)
@@ -498,9 +507,9 @@ namespace 基础实践项目
 
             #region 2.2.2.2改进后存储方法
             //利用函数改进上述存储过程
-            StoreMapElement(1, array, new int[] { 9, 49, 50, 62, 68 });
-            StoreMapElement(2, array, new int[] { 26, 57 });
-            StoreMapElement(3, array, new int[] { 11, 12, 16, 18, 32, 36, 45, 47, 56, 66, 77 });
+            StoreMapElement(1, array, new int[] { 10, 50, 51, 63, 69 });
+            StoreMapElement(2, array, new int[] { 27, 58 });
+            StoreMapElement(3, array, new int[] { 12, 13, 17, 19, 33, 37, 46, 48, 57, 67, 78 });
 
             #endregion
 
