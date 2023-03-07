@@ -177,30 +177,54 @@ namespace 基础实践项目
         static void printPlayer(int type, Gamer nowPlayer, Gamer waitPlayer, int[,] arr)
         {
 
-            #region 2.3.1在旧位置复原地图显示
-            //在旧位置打印地图原先的标志
-            //设置输出坐标
-            Console.SetCursorPosition(arr[nowPlayer.index1, 0], arr[nowPlayer.index1, 1]);
-            //判断格子属性进行打印
-            switch ((E_Type)arr[nowPlayer.index1, 2])
+
+            #region 2.3.0原先重合移动一个的情况复原其中一个显示
+            //判断两个玩家之前位置重合，其中一个移动后不重合的情况
+            if (nowPlayer.index != waitPlayer.index && nowPlayer.index1 == waitPlayer.index)
             {
-                case E_Type.Common:
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.Write("□");
-                    break;
-                case E_Type.Pause:
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.Write("‖");
-                    break;
-                case E_Type.Bomb:
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.Write("●");
-                    break;
-                case E_Type.Tunnel:
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.Write("¤");
-                    break;
+                //在原先的位置显示waitPlayer的logo
+                Console.SetCursorPosition(arr[nowPlayer.index1, 0], arr[nowPlayer.index1, 1]);
+                if (type == 0)
+                {
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+                    Console.Write("▲");
+                }
+                else if (type == 1)
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.Write("★");
+                }
             }
+            #endregion
+
+            #region 2.3.1在旧位置复原地图显示
+            else
+            {
+                //在旧位置打印地图原先的标志
+                //设置输出坐标
+                Console.SetCursorPosition(arr[nowPlayer.index1, 0], arr[nowPlayer.index1, 1]);
+                //判断格子属性进行打印
+                switch ((E_Type)arr[nowPlayer.index1, 2])
+                {
+                    case E_Type.Common:
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.Write("□");
+                        break;
+                    case E_Type.Pause:
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.Write("‖");
+                        break;
+                    case E_Type.Bomb:
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write("●");
+                        break;
+                    case E_Type.Tunnel:
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.Write("¤");
+                        break;
+                }
+            }
+           
             #endregion
 
             #region 2.3.2在新位置打印玩家logo
@@ -227,6 +251,7 @@ namespace 基础实践项目
                     Console.Write("◎");
                     break;
             }
+
             #endregion
         }
         #endregion
@@ -733,7 +758,7 @@ namespace 基础实践项目
 
             #endregion
 
-            #region 2.3回合战斗
+            #region 2.3回合战斗           
             //玩家初始化
             Gamer P1 = new Gamer(0, 0, 0, false);//玩家
             Gamer P2 = new Gamer(1, 0, 0, false);//电脑
