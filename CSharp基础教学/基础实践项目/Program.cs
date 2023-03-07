@@ -38,6 +38,8 @@ namespace 基础实践项目
         public int index;//玩家位置索引
         public bool canPlay;//玩家接下来是否可以扔色子标志
         public int r;//扔色子得到的随机数1~6
+        public int attGrid;//地图格子属性,0普通/1暂停/2炸弹/3时光隧道/4时光隧道-随机倒退/5时光隧道-暂停/6时光隧道-换位置
+        public int randTun;//时光隧道倒退随机数
 
         //仍色子函数
         public void randomThrow()
@@ -57,12 +59,14 @@ namespace 基础实践项目
         }
 
         //构造函数
-        public Gamer(int typePlayer, int index, bool canPlay, int r = 0)
+        public Gamer(int typePlayer, int index, bool canPlay, int r = 0, int attGrid = 0, int randTun = 0)
         {
             this.typePlayer = typePlayer;
             this.index = index;
             this.canPlay = canPlay;
             this.r = r;
+            this.attGrid = attGrid;
+            this.randTun = randTun;
         }
     }
     #endregion
@@ -107,38 +111,48 @@ namespace 基础实践项目
             if (arr[nowPlayer.index, 2] == 0)//普通格子
             {
                 nowPlayer.index = nowPlayer.index;
+                nowPlayer.attGrid = 0;
                 return;
             }
             else if (arr[nowPlayer.index, 2] == 1)//暂停格子
             {
                 nowPlayer.index = nowPlayer.index;
                 nowPlayer.canPlay = false;
+                nowPlayer.attGrid = 1;
                 return;
             }
             else if (arr[nowPlayer.index, 2] == 2)//炸弹格子
             {
                 nowPlayer.index = nowPlayer.index - 5;
+                nowPlayer.attGrid = 2;
                 return;
             }
             else if(arr[nowPlayer.index, 2] == 3)//时空隧道
             {
+                nowPlayer.attGrid = 3;
                 //时空隧道，三种情况(随机倒退1/暂停2/换位置3)
                 int r1 = (new Random()).Next(1, 4);
                 if (r1 == 1)//随机倒退
                 {
-                    int r2 = (new Random()).Next(1, 7);//随机倒退1~6步
-                    nowPlayer.index = nowPlayer.index - r2;
-                    //需要传入进一步判断格子属性
-                    changeIndex(ref nowPlayer, ref waitPlayer, arr);
+                    nowPlayer.attGrid = 4;
+                    
+                    nowPlayer.randTun = (new Random()).Next(1, 7);//随机倒退1~6步
+                    nowPlayer.index = nowPlayer.index - nowPlayer.randTun;
+                    //需要传入进一步判断格子属性(先不考虑倒退后再命中其他非普通格子的情况)
+                    //changeIndex(ref nowPlayer, ref waitPlayer, arr);
                 }
                 else if (r1 == 2)//暂停
                 {
+                    nowPlayer.attGrid = 5;
+
                     nowPlayer.index = nowPlayer.index;
                     nowPlayer.canPlay = false;
                     return;
                 }
                 else if (r1 == 3)//换位置
                 {
+                    nowPlayer.attGrid = 6;
+
                     int temp;
                     temp = nowPlayer.index;
                     nowPlayer.index = waitPlayer.index;
@@ -170,15 +184,92 @@ namespace 基础实践项目
         #endregion
 
         #region 2.3战斗信息区打印战斗信息函数
-
-        static void battleInfo(int type, Gamer nowPlayer)
-        {
+        /// <summary>
+        /// 战斗信息函数
+        /// </summary>
+        /// <param name="type">玩家类型</param>
+        /// <param name="nowPlayer">当前玩家</param>
+        static void battleInfo(int type, Gamer nowPlayer, int h = 30)
+        {   
+            //先清空打印区防止前面的信息影响显示
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.SetCursorPosition(2, h - 5);
+            Console.Write("                                             ");
+            Console.SetCursorPosition(2, h - 4);
+            Console.Write("                                             ");
+            Console.SetCursorPosition(2, h - 3);
+            Console.Write("                                             ");
+            Console.SetCursorPosition(2, h - 2);
+            Console.Write("                                             ");
+            //判断是玩家还是电脑，控制字体颜色，控制后续打印信息是"你"还是"电脑"
+            string name = "";
+            if (type == 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                name = "你";
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                name = "电脑";
+            }
             //打印扔出色子点数
-            Console.Write("你扔出点数为：{0}", nowPlayer.r);
-            //打印色子点数位置信息
-
+            Console.SetCursorPosition(2, h- 5);
+            Console.Write("{0}扔出点数为：{1}", name, nowPlayer.r);
+            //打印色子点数位置信息(难点:如何知道扔色子后的第一个坐标)
+            switch (nowPlayer.attGrid)
+            {
+                case 0:
+                    Console.SetCursorPosition(2, h - 4);
+                    Console.Write("{0}到达一个安全位置", name);
+                    break;
+                case 1:
+                    Console.SetCursorPosition(2, h - 4);
+                    Console.Write("{0}到达暂停点，下回合无法扔色子", name);
+                    break;
+                case 2:
+                    Console.SetCursorPosition(2, h - 4);
+                    Console.Write("{0}达到炸弹点，倒退5格", name);
+                    break;
+                case 4:
+                    Console.SetCursorPosition(2, h - 4);
+                    Console.Write("{0}到达时空隧道", name);
+                    Console.SetCursorPosition(2, h - 3);
+                    Console.Write("很遗憾，随机事件为倒退{0}格",nowPlayer.randTun);
+                    break;
+                case 5:
+                    Console.SetCursorPosition(2, h - 4);
+                    Console.Write("{0}到达时空隧道", name);
+                    Console.SetCursorPosition(2, h - 3);
+                    Console.Write("很遗憾，随机事件为暂停，下回合无法扔色子");
+                    break;
+                case 6:
+                    Console.SetCursorPosition(2, h - 4);
+                    Console.Write("{0}到达时空隧道", name);
+                    Console.SetCursorPosition(2, h - 3);
+                    Console.Write("惊喜，惊喜，双方交换位置");
+                    break;
+            }
             //打印继续战斗信息
-
+            //设置打印坐标
+            if (nowPlayer.attGrid == 0 || nowPlayer.attGrid == 1 || nowPlayer.attGrid == 2)
+            {
+                Console.SetCursorPosition(2, h - 3);
+            }
+            else if (nowPlayer.attGrid == 3 || nowPlayer.attGrid == 4 || nowPlayer.attGrid == 5 || nowPlayer.attGrid == 6)
+            {
+                Console.SetCursorPosition(2, h - 2);
+            }
+            //根据是玩家还是电脑打印
+            switch (type)
+            {
+                case 0:
+                    Console.Write("请按任意键，让电脑开始扔色子");
+                    break;
+                case 1:
+                    Console.Write("请按任意键，让你自己开始扔色子");
+                    break;
+            }
         }
         #endregion
         static void Main(string[] args)
@@ -595,14 +686,15 @@ namespace 基础实践项目
 
             #region 2.3回合战斗
             //玩家初始化
-            Gamer P1 = new Gamer(0, -1, false);//玩家
-            Gamer P2 = new Gamer(1, -1, false);//电脑
+            Gamer P1 = new Gamer(0, 0, false);//玩家
+            Gamer P2 = new Gamer(1, 0, false);//电脑
 
-            //开始游戏
+            //打印开始游戏提示
             Console.SetCursorPosition(2, h - 5);
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write("按任意键开始扔色子");
 
+            //循环回合游戏
             while (true)
             {              
               
@@ -610,16 +702,18 @@ namespace 基础实践项目
                 P1.randomThrow();//P1扔色子
                 changeIndex(ref P1, ref P2, array);//确认P1最终索引
                 printPlayer(0, P1, array);//在新索引处打印玩家logo
+                battleInfo(0, P1);//打印战斗信息
 
                 
-                Console.ReadKey();
+                Console.ReadKey(true);
 
                 //电脑再扔色子和改变索引
                 P2.randomThrow();//P2扔色子
                 changeIndex(ref P2, ref P1, array);//确认P2最终索引
                 printPlayer(1, P2, array);//在新索引处打印电脑logo
+                battleInfo(1, P2);//打印战斗信息
 
-                Console.ReadKey();
+                Console.ReadKey(true);
             }
 
 
