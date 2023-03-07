@@ -40,7 +40,8 @@ namespace 基础实践项目
         public bool canPlay;//玩家接下来是否可以扔色子标志
         public int r;//扔色子得到的随机数1~6
         public int attGrid;//地图格子属性,0普通/1暂停/2炸弹/3时光隧道/4时光隧道-随机倒退/5时光隧道-暂停/6时光隧道-换位置
-        public int randTun;//时光隧道倒退随机数
+        public int randTun;//时光隧道倒退随机数1~6
+        public bool isArrived;//是否到达
 
         //仍色子函数
         public void randomThrow()
@@ -59,11 +60,19 @@ namespace 基础实践项目
             //玩家或者电脑色子扔出随机数n 1~6后，新的位置
             Random random = new Random();
             r = random.Next(1, 7);
-            index = index + r;
+            if (index + r < 79)
+            {
+                index = index + r;
+            }
+            else
+            {
+                index = 79;
+                isArrived = true;
+            }
         }
 
         //构造函数
-        public Gamer(int typePlayer, int index1, int index, bool canPlay, int r = 0, int attGrid = 0, int randTun = 0)
+        public Gamer(int typePlayer, int index1, int index, bool canPlay, int r = 0, int attGrid = 0, int randTun = 0, bool isArrived = false)
         {
             this.typePlayer = typePlayer;
             this.index1 = index1;   
@@ -72,6 +81,7 @@ namespace 基础实践项目
             this.r = r;
             this.attGrid = attGrid;
             this.randTun = randTun;
+            this.isArrived = isArrived;
         }
     }
     #endregion
@@ -110,58 +120,65 @@ namespace 基础实践项目
         #region 2.3确认玩家最终索引函数申明
 
         static void changeIndex(ref Gamer nowPlayer,ref Gamer waitPlayer, int[,] arr)
-        {           
-            //判断索引变化后的新索引对应的格子属性
-            if (arr[nowPlayer.index, 2] == 0)//普通格子
+        {
+            if (nowPlayer.isArrived)//玩家扔色子到达或者超过终点
             {
-                nowPlayer.index = nowPlayer.index;
-                nowPlayer.attGrid = 0;
-                return;
+                nowPlayer.index = 79;
             }
-            else if (arr[nowPlayer.index, 2] == 1)//暂停格子
+            else//玩家扔色子后未到达终点
             {
-                nowPlayer.index = nowPlayer.index;
-                nowPlayer.canPlay = false;
-                nowPlayer.attGrid = 1;
-                return;
-            }
-            else if (arr[nowPlayer.index, 2] == 2)//炸弹格子
-            {
-                nowPlayer.index = nowPlayer.index - 5;
-                nowPlayer.attGrid = 2;
-                return;
-            }
-            else if(arr[nowPlayer.index, 2] == 3)//时空隧道
-            {
-                nowPlayer.attGrid = 3;
-                //时空隧道，三种情况(随机倒退1/暂停2/换位置3)
-                int r1 = (new Random()).Next(1, 4);
-                if (r1 == 1)//随机倒退
+                //判断索引变化后的新索引对应的格子属性
+                if (arr[nowPlayer.index, 2] == 0)//普通格子
                 {
-                    nowPlayer.attGrid = 4;
-                    
-                    nowPlayer.randTun = (new Random()).Next(1, 7);//随机倒退1~6步
-                    nowPlayer.index = nowPlayer.index - nowPlayer.randTun;
-                    //需要传入进一步判断格子属性(先不考虑倒退后再命中其他非普通格子的情况)
-                    //changeIndex(ref nowPlayer, ref waitPlayer, arr);
+                    nowPlayer.index = nowPlayer.index;
+                    nowPlayer.attGrid = 0;
+                    return;
                 }
-                else if (r1 == 2)//暂停
+                else if (arr[nowPlayer.index, 2] == 1)//暂停格子
                 {
-                    nowPlayer.attGrid = 5;
-
                     nowPlayer.index = nowPlayer.index;
                     nowPlayer.canPlay = false;
+                    nowPlayer.attGrid = 1;
                     return;
                 }
-                else if (r1 == 3)//换位置
+                else if (arr[nowPlayer.index, 2] == 2)//炸弹格子
                 {
-                    nowPlayer.attGrid = 6;
-
-                    int temp;
-                    temp = nowPlayer.index;
-                    nowPlayer.index = waitPlayer.index;
-                    waitPlayer.index = temp;
+                    nowPlayer.index = nowPlayer.index - 5;
+                    nowPlayer.attGrid = 2;
                     return;
+                }
+                else if (arr[nowPlayer.index, 2] == 3)//时空隧道
+                {
+                    nowPlayer.attGrid = 3;
+                    //时空隧道，三种情况(随机倒退1/暂停2/换位置3)
+                    int r1 = (new Random()).Next(1, 4);
+                    if (r1 == 1)//随机倒退
+                    {
+                        nowPlayer.attGrid = 4;
+
+                        nowPlayer.randTun = (new Random()).Next(1, 7);//随机倒退1~6步
+                        nowPlayer.index = nowPlayer.index - nowPlayer.randTun;
+                        //需要传入进一步判断格子属性(先不考虑倒退后再命中其他非普通格子的情况)
+                        //changeIndex(ref nowPlayer, ref waitPlayer, arr);
+                    }
+                    else if (r1 == 2)//暂停
+                    {
+                        nowPlayer.attGrid = 5;
+
+                        nowPlayer.index = nowPlayer.index;
+                        nowPlayer.canPlay = false;
+                        return;
+                    }
+                    else if (r1 == 3)//换位置
+                    {
+                        nowPlayer.attGrid = 6;
+
+                        int temp;
+                        temp = nowPlayer.index;
+                        nowPlayer.index = waitPlayer.index;
+                        waitPlayer.index = temp;
+                        return;
+                    }
                 }
             }
         }
@@ -176,9 +193,7 @@ namespace 基础实践项目
         /// <param name="arr">地图数组</param>
         static void printPlayer(int type, Gamer nowPlayer, Gamer waitPlayer, int[,] arr)
         {
-
-
-            #region 2.3.0原先重合移动一个的情况复原其中一个显示
+            #region 2.3.0原先重合移动一个的情况复原另一个显示
             //判断两个玩家之前位置重合，其中一个移动后不重合的情况
             if (nowPlayer.index != waitPlayer.index && nowPlayer.index1 == waitPlayer.index)
             {
@@ -264,7 +279,9 @@ namespace 基础实践项目
         /// <param name="nowPlayer">当前玩家</param>
         /// <param name="h">地图高度</param>
         static void battleInfo(int type, Gamer nowPlayer, int h = 30)
-        {   
+        {
+
+            #region 在战斗信息区-打印前的初始化
             //先清空打印区防止前面的信息影响显示
             Console.ForegroundColor = ConsoleColor.Black;
             Console.SetCursorPosition(2, h - 5);
@@ -287,63 +304,80 @@ namespace 基础实践项目
                 Console.ForegroundColor = ConsoleColor.Magenta;
                 name = "电脑";
             }
-            //打印扔出色子点数
-            Console.SetCursorPosition(2, h- 5);
-            Console.Write("{0}扔出点数为：{1}", name, nowPlayer.r);
-            //打印色子点数位置信息(难点:如何知道扔色子后的第一个坐标)
-            switch (nowPlayer.attGrid)
+            #endregion
+
+            if (nowPlayer.isArrived)
             {
-                case 0:
-                    Console.SetCursorPosition(2, h - 4);
-                    Console.Write("{0}到达一个安全位置", name);
-                    break;
-                case 1:
-                    Console.SetCursorPosition(2, h - 4);
-                    Console.Write("{0}到达暂停点，下回合无法扔色子", name);
-                    break;
-                case 2:
-                    Console.SetCursorPosition(2, h - 4);
-                    Console.Write("{0}达到炸弹点，倒退5格", name);
-                    break;
-                case 4:
-                    Console.SetCursorPosition(2, h - 4);
-                    Console.Write("{0}到达时空隧道", name);
+                Console.SetCursorPosition(2, h - 5);
+                Console.Write("恭喜，{0}已经达到终点，按任意键回到游戏开始界面", name);
+            }
+            else
+            {
+                #region 在战斗信息区-打印扔出的点数以及到达的格子属性
+                //打印扔出色子点数
+                Console.SetCursorPosition(2, h - 5);
+                Console.Write("{0}扔出点数为：{1}", name, nowPlayer.r);
+                //打印色子点数位置信息(难点:如何知道扔色子后的第一个坐标)
+                switch (nowPlayer.attGrid)
+                {
+                    case 0:
+                        Console.SetCursorPosition(2, h - 4);
+                        Console.Write("{0}到达一个安全位置", name);
+                        break;
+                    case 1:
+                        Console.SetCursorPosition(2, h - 4);
+                        Console.Write("{0}到达暂停点，下回合无法扔色子", name);
+                        break;
+                    case 2:
+                        Console.SetCursorPosition(2, h - 4);
+                        Console.Write("{0}达到炸弹点，倒退5格", name);
+                        break;
+                    case 4:
+                        Console.SetCursorPosition(2, h - 4);
+                        Console.Write("{0}到达时空隧道", name);
+                        Console.SetCursorPosition(2, h - 3);
+                        Console.Write("很遗憾，随机事件为倒退{0}格", nowPlayer.randTun);
+                        break;
+                    case 5:
+                        Console.SetCursorPosition(2, h - 4);
+                        Console.Write("{0}到达时空隧道", name);
+                        Console.SetCursorPosition(2, h - 3);
+                        Console.Write("很遗憾，随机事件为暂停，下回合无法扔色子");
+                        break;
+                    case 6:
+                        Console.SetCursorPosition(2, h - 4);
+                        Console.Write("{0}到达时空隧道", name);
+                        Console.SetCursorPosition(2, h - 3);
+                        Console.Write("惊喜，惊喜，双方交换位置");
+                        break;
+                }
+                #endregion
+
+                #region 在战斗信息区-打印继续战斗行信息
+                //打印继续战斗信息
+                //设置打印坐标
+                if (nowPlayer.attGrid == 0 || nowPlayer.attGrid == 1 || nowPlayer.attGrid == 2)
+                {
                     Console.SetCursorPosition(2, h - 3);
-                    Console.Write("很遗憾，随机事件为倒退{0}格",nowPlayer.randTun);
-                    break;
-                case 5:
-                    Console.SetCursorPosition(2, h - 4);
-                    Console.Write("{0}到达时空隧道", name);
-                    Console.SetCursorPosition(2, h - 3);
-                    Console.Write("很遗憾，随机事件为暂停，下回合无法扔色子");
-                    break;
-                case 6:
-                    Console.SetCursorPosition(2, h - 4);
-                    Console.Write("{0}到达时空隧道", name);
-                    Console.SetCursorPosition(2, h - 3);
-                    Console.Write("惊喜，惊喜，双方交换位置");
-                    break;
+                }
+                else if (nowPlayer.attGrid == 3 || nowPlayer.attGrid == 4 || nowPlayer.attGrid == 5 || nowPlayer.attGrid == 6)
+                {
+                    Console.SetCursorPosition(2, h - 2);
+                }
+                //根据是玩家还是电脑打印
+                switch (type)
+                {
+                    case 0:
+                        Console.Write("请按任意键，让电脑开始扔色子");
+                        break;
+                    case 1:
+                        Console.Write("请按任意键，让你自己开始扔色子");
+                        break;
+                }
+                #endregion
             }
-            //打印继续战斗信息
-            //设置打印坐标
-            if (nowPlayer.attGrid == 0 || nowPlayer.attGrid == 1 || nowPlayer.attGrid == 2)
-            {
-                Console.SetCursorPosition(2, h - 3);
-            }
-            else if (nowPlayer.attGrid == 3 || nowPlayer.attGrid == 4 || nowPlayer.attGrid == 5 || nowPlayer.attGrid == 6)
-            {
-                Console.SetCursorPosition(2, h - 2);
-            }
-            //根据是玩家还是电脑打印
-            switch (type)
-            {
-                case 0:
-                    Console.Write("请按任意键，让电脑开始扔色子");
-                    break;
-                case 1:
-                    Console.Write("请按任意键，让你自己开始扔色子");
-                    break;
-            }
+
+
         }
         #endregion
         static void Main(string[] args)
