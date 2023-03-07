@@ -35,7 +35,8 @@ namespace 基础实践项目
     struct Gamer
     {
         public int typePlayer;//玩家种类，0为真人玩家，1为电脑
-        public int index;//玩家位置索引
+        public int index1;//玩家移动前位置索引
+        public int index;//玩家移动后位置索引
         public bool canPlay;//玩家接下来是否可以扔色子标志
         public int r;//扔色子得到的随机数1~6
         public int attGrid;//地图格子属性,0普通/1暂停/2炸弹/3时光隧道/4时光隧道-随机倒退/5时光隧道-暂停/6时光隧道-换位置
@@ -52,6 +53,9 @@ namespace 基础实践项目
 
             //P1.index = P1.index + n;
 
+            //扔色子前保存当下索引位置到index1中
+            index1 = index;
+
             //玩家或者电脑色子扔出随机数n 1~6后，新的位置
             Random random = new Random();
             r = random.Next(1, 7);
@@ -59,9 +63,10 @@ namespace 基础实践项目
         }
 
         //构造函数
-        public Gamer(int typePlayer, int index, bool canPlay, int r = 0, int attGrid = 0, int randTun = 0)
+        public Gamer(int typePlayer, int index1, int index, bool canPlay, int r = 0, int attGrid = 0, int randTun = 0)
         {
             this.typePlayer = typePlayer;
+            this.index1 = index1;   
             this.index = index;
             this.canPlay = canPlay;
             this.r = r;
@@ -73,6 +78,7 @@ namespace 基础实践项目
 
     internal class Program
     {
+
 
         #region 2.2.2地图元素属性存储到数组中函数申明
         //元素存储函数定义
@@ -107,6 +113,9 @@ namespace 基础实践项目
 
         static void changeIndex(ref Gamer nowPlayer,ref Gamer waitPlayer, int[,] arr)
         {
+            ////移动前索引位置存到index1中
+            //nowPlayer.index1 = nowPlayer.index;
+            
             //判断索引变化后的新索引对应的格子属性
             if (arr[nowPlayer.index, 2] == 0)//普通格子
             {
@@ -163,10 +172,17 @@ namespace 基础实践项目
         }
         #endregion
 
-        #region 2.3地图上打印玩家logo函数申明
-
+        #region 2.3地图上打印玩家logo+原先位置复原显示函数申明
+        /// <summary>
+        /// 玩家logo打印+原先位置复原函数
+        /// </summary>
+        /// <param name="type">玩家类型</param>
+        /// <param name="nowPlayer">要扔色子的玩家</param>
+        /// <param name="arr">地图数组</param>
         static void printPlayer(int type, Gamer nowPlayer,int[,] arr)
         {
+                      
+            //在新位置打印玩家logo
             Console.SetCursorPosition(arr[nowPlayer.index,0],arr[nowPlayer.index,1]);
             switch (type)
             {
@@ -179,7 +195,30 @@ namespace 基础实践项目
                     Console.Write("▲");
                     break;
             }
-           
+            //在旧位置打印地图原先的标志
+            //设置输出坐标
+            Console.SetCursorPosition(arr[nowPlayer.index1, 0], arr[nowPlayer.index1, 1]);
+            //判断格子属性进行打印
+            switch ((E_Type)arr[nowPlayer.index1, 2])
+            {
+                case E_Type.Common:
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Write("□");
+                    break;
+                case E_Type.Pause:
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.Write("‖");
+                    break;
+                case E_Type.Bomb:
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write("●");
+                    break;
+                case E_Type.Tunnel:
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write("¤");
+                    break;
+            }
+
         }
         #endregion
 
@@ -189,6 +228,7 @@ namespace 基础实践项目
         /// </summary>
         /// <param name="type">玩家类型</param>
         /// <param name="nowPlayer">当前玩家</param>
+        /// <param name="h">地图高度</param>
         static void battleInfo(int type, Gamer nowPlayer, int h = 30)
         {   
             //先清空打印区防止前面的信息影响显示
@@ -686,13 +726,14 @@ namespace 基础实践项目
 
             #region 2.3回合战斗
             //玩家初始化
-            Gamer P1 = new Gamer(0, 0, false);//玩家
-            Gamer P2 = new Gamer(1, 0, false);//电脑
+            Gamer P1 = new Gamer(0, 0, 0, false);//玩家
+            Gamer P2 = new Gamer(1, 0, 0, false);//电脑
 
             //打印开始游戏提示
             Console.SetCursorPosition(2, h - 5);
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write("按任意键开始扔色子");
+            Console.ReadKey(true);
 
             //循环回合游戏
             while (true)
