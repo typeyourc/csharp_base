@@ -78,8 +78,6 @@ namespace 基础实践项目
 
     internal class Program
     {
-
-
         #region 2.2.2地图元素属性存储到数组中函数申明
         //元素存储函数定义
         static void StoreMapElement(int type, int[,] arr1, params int[] arr2)
@@ -112,10 +110,7 @@ namespace 基础实践项目
         #region 2.3确认玩家最终索引函数申明
 
         static void changeIndex(ref Gamer nowPlayer,ref Gamer waitPlayer, int[,] arr)
-        {
-            ////移动前索引位置存到index1中
-            //nowPlayer.index1 = nowPlayer.index;
-            
+        {           
             //判断索引变化后的新索引对应的格子属性
             if (arr[nowPlayer.index, 2] == 0)//普通格子
             {
@@ -179,22 +174,10 @@ namespace 基础实践项目
         /// <param name="type">玩家类型</param>
         /// <param name="nowPlayer">要扔色子的玩家</param>
         /// <param name="arr">地图数组</param>
-        static void printPlayer(int type, Gamer nowPlayer,int[,] arr)
+        static void printPlayer(int type, Gamer nowPlayer, Gamer waitPlayer, int[,] arr)
         {
-                      
-            //在新位置打印玩家logo
-            Console.SetCursorPosition(arr[nowPlayer.index,0],arr[nowPlayer.index,1]);
-            switch (type)
-            {
-               case 0:
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.Write("★");
-                    break;
-                case 1:
-                    Console.ForegroundColor = ConsoleColor.Magenta;
-                    Console.Write("▲");
-                    break;
-            }
+
+            #region 2.3.1在旧位置复原地图显示
             //在旧位置打印地图原先的标志
             //设置输出坐标
             Console.SetCursorPosition(arr[nowPlayer.index1, 0], arr[nowPlayer.index1, 1]);
@@ -218,7 +201,33 @@ namespace 基础实践项目
                     Console.Write("¤");
                     break;
             }
+            #endregion
 
+            #region 2.3.2在新位置打印玩家logo
+            //判断两个玩家位置重合的情况
+            if (nowPlayer.index == waitPlayer.index)
+            {
+                type = 2;
+            }
+
+            //在新位置打印玩家logo
+            Console.SetCursorPosition(arr[nowPlayer.index, 0], arr[nowPlayer.index, 1]);
+            switch (type)
+            {
+                case 0://真人玩家
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.Write("★");
+                    break;
+                case 1://电脑玩家
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+                    Console.Write("▲");
+                    break;
+                case 2://两者重合
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write("◎");
+                    break;
+            }
+            #endregion
         }
         #endregion
 
@@ -729,6 +738,11 @@ namespace 基础实践项目
             Gamer P1 = new Gamer(0, 0, 0, false);//玩家
             Gamer P2 = new Gamer(1, 0, 0, false);//电脑
 
+            //初始化打印玩家logo
+            Console.SetCursorPosition(array[P1.index, 0], array[P1.index, 1]);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write("◎");
+
             //打印开始游戏提示
             Console.SetCursorPosition(2, h - 5);
             Console.ForegroundColor = ConsoleColor.White;
@@ -742,7 +756,7 @@ namespace 基础实践项目
                 //玩家先扔色子和改变索引
                 P1.randomThrow();//P1扔色子
                 changeIndex(ref P1, ref P2, array);//确认P1最终索引
-                printPlayer(0, P1, array);//在新索引处打印玩家logo
+                printPlayer(0, P1, P2, array);//在新索引处打印玩家logo
                 battleInfo(0, P1);//打印战斗信息
 
                 
@@ -751,7 +765,7 @@ namespace 基础实践项目
                 //电脑再扔色子和改变索引
                 P2.randomThrow();//P2扔色子
                 changeIndex(ref P2, ref P1, array);//确认P2最终索引
-                printPlayer(1, P2, array);//在新索引处打印电脑logo
+                printPlayer(1, P2, P1, array);//在新索引处打印电脑logo
                 battleInfo(1, P2);//打印战斗信息
 
                 Console.ReadKey(true);
