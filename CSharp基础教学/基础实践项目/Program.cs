@@ -37,11 +37,11 @@ namespace 基础实践项目
         public int typePlayer;//玩家种类，0为真人玩家，1为电脑
         public int index1;//玩家移动前位置索引
         public int index;//玩家移动后位置索引
-        public bool canPlay;//玩家接下来是否可以扔色子标志
+        public bool canPlay;//玩家接下来是否可以扔色子 true可以 false 不可以
         public int r;//扔色子得到的随机数1~6
         public int attGrid;//地图格子属性,0普通/1暂停/2炸弹/3时光隧道/4时光隧道-随机倒退/5时光隧道-暂停/6时光隧道-换位置
         public int randTun;//时光隧道倒退随机数1~6
-        public bool isArrived;//是否到达
+        public bool isArrived;//是否到达 true到达 false未到达
 
         //仍色子函数
         public void randomThrow()
@@ -823,34 +823,49 @@ namespace 基础实践项目
                     while (true)
                     {
 
-                        //玩家先扔色子和改变索引
-                        P1.randomThrow();//P1扔色子
-                        changeIndex(ref P1, ref P2, array);//确认P1最终索引
-                        printPlayer(0, P1, P2, array);//在新索引处打印玩家logo
-                        battleInfo(0, P1);//打印战斗信息
-                        if (P1.isArrived)//是否到达终点判断
+                        if (P1.canPlay)
                         {
-                            sceneId = 1;
+                            //玩家先扔色子和改变索引
+                            P1.randomThrow();//P1扔色子
+                            changeIndex(ref P1, ref P2, array);//确认P1最终索引
+                            printPlayer(0, P1, P2, array);//在新索引处打印玩家logo
+                            battleInfo(0, P1);//打印战斗信息
+                            if (P1.isArrived)//是否到达终点判断
+                            {
+                                sceneId = 1;
+                                Console.ReadKey(true);
+                                Console.Clear();
+                                break;
+                            }
+
                             Console.ReadKey(true);
-                            Console.Clear();
-                            break;
+                        }
+                        else
+                        {
+                            P1.canPlay = true;
                         }
 
-                        Console.ReadKey(true);
-
-                        //电脑再扔色子和改变索引
-                        P2.randomThrow();//P2扔色子
-                        changeIndex(ref P2, ref P1, array);//确认P2最终索引
-                        printPlayer(1, P2, P1, array);//在新索引处打印电脑logo
-                        battleInfo(1, P2);//打印战斗信息
-                        if (P2.isArrived)//是否到达终点判断
+                        if (P2.canPlay)
                         {
-                            sceneId = 1;
+                            //电脑再扔色子和改变索引
+                            P2.randomThrow();//P2扔色子
+                            changeIndex(ref P2, ref P1, array);//确认P2最终索引
+                            printPlayer(1, P2, P1, array);//在新索引处打印电脑logo
+                            battleInfo(1, P2);//打印战斗信息
+                            if (P2.isArrived)//是否到达终点判断
+                            {
+                                sceneId = 1;
+                                Console.ReadKey(true);
+                                Console.Clear();
+                                break;
+                            }
                             Console.ReadKey(true);
-                            Console.Clear();
-                            break;
                         }
-                        Console.ReadKey(true);
+                        else
+                        {
+                            P2.canPlay = true;
+                        }
+
                     }
 
 
