@@ -190,6 +190,7 @@ namespace 基础实践项目
         /// </summary>
         /// <param name="type">玩家类型</param>
         /// <param name="nowPlayer">要扔色子的玩家</param>
+        /// <param name="waitPlayer">等待扔色子的玩家</param>
         /// <param name="arr">地图数组</param>
         static void printPlayer(int type, Gamer nowPlayer, Gamer waitPlayer, int[,] arr)
         {
@@ -213,7 +214,7 @@ namespace 基础实践项目
             #endregion
 
             #region 2.3.1在旧位置复原地图显示
-            else
+            else if(nowPlayer.attGrid !=  6)//不等于6即没发生时空交换，消除原来位置的logo即可
             {
                 //在旧位置打印地图原先的标志
                 //设置输出坐标
@@ -237,6 +238,45 @@ namespace 基础实践项目
                         Console.ForegroundColor = ConsoleColor.Yellow;
                         Console.Write("¤");
                         break;
+                }
+            }
+            else if(nowPlayer.attGrid == 6)//发生时空交换的情况，消除原来位置nowPlayer的logo，同时，nowPlayer由于在时空隧道的位置跟waitPlayer发生了位置置换，所以打印位置互换一下
+            {
+                //这里要注意，在时空隧道的情况下，置换是从时空隧道的位置跟另一个玩家置换，而不是从玩家到达时空隧道前的位置跟另一个玩家互换
+                //在旧位置打印地图原先的标志
+                //设置输出坐标
+                Console.SetCursorPosition(arr[nowPlayer.index1, 0], arr[nowPlayer.index1, 1]);
+                //判断格子属性进行打印
+                switch ((E_Type)arr[nowPlayer.index1, 2])
+                {
+                    case E_Type.Common:
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.Write("□");
+                        break;
+                    case E_Type.Pause:
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.Write("‖");
+                        break;
+                    case E_Type.Bomb:
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write("●");
+                        break;
+                    case E_Type.Tunnel:
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.Write("¤");
+                        break;
+                }
+                //在waitPlayer的位置显示玩家logo而不是复原
+                Console.SetCursorPosition(arr[waitPlayer.index, 0], arr[waitPlayer.index, 1]);
+                if (type == 0)//如果玩家是真人，则在waitPlayer位置输出电脑logo
+                {
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+                    Console.Write("▲");
+                }
+                else if (type == 1)//如果玩家是电脑，则在waitPlayer位置输出真人logo
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.Write("★");
                 }
             }
            
@@ -309,7 +349,7 @@ namespace 基础实践项目
             if (nowPlayer.isArrived)
             {
                 Console.SetCursorPosition(2, h - 5);
-                Console.Write("{0}已经达到终点，按任意键返回开始界面", name);
+                Console.Write("{0}先到终点，赢得游戏，按任意键返回开始界面", name);
             }
             else
             {
